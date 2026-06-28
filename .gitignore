@@ -1,160 +1,104 @@
 ```
 # Dependencies
 node_modules/
+packages/
 
 # Build artifacts
-test_c
-test_cpp
-web/dist/
-
-# Package lock files
-package-lock.json
-
-# TypeScript build output
-*.tsbuildinfo
-
-# Logs
-*.log
-
-# Environment variables
-.env
-.env.local
-*.env.*
+dist/
+build/
+target/
 
 # IDE files
 .vscode/
 .idea/
+*.swp
+*.swo
 
-# OS generated files
-.DS_Store
-Thumbs.db
+# Logs
+*.log
 
-# Coverage reports
-coverage/
-htmlcov/
-.coverage
+# Environment
+.env
+.env.local
+*.env.*
 
-# Python cache
+# Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-
-# Compiled files
-*.o
-*.obj
-*.exe
-*.dll
-*.so
-*.a
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
 *.out
-
-# Distribution / packaging
-dist/
-build/
-*.tar.gz
-*.whl
-*.egg-info/
-
-# Testing
+*.pid
+*.seed
+*.session
+.hypothesis/
+.coverage*
 .pytest_cache/
 .mypy_cache/
+.pyre/
+.pytype/
 
-# Temporary files
-*.tmp
-*.swp
-*.swo
-
-# Compressed files
-*.zip
-*.gz
-*.tar
-*.tgz
-*.bz2
-*.xz
-*.7z
-*.rar
-*.zst
-*.lz4
-*.lzh
-*.cab
-*.arj
-*.rpm
-*.deb
-*.Z
-*.lz
-*.lzo
-*.tar.gz
-*.tar.bz2
-*.tar.xz
-*.tar.zst
-
-# C# specific
-*.userprefs
-*.pidb
-*.suo
-*.user
-*.aps
-*.pch
-*.vspscc
-*.vssscc
-*_i.c
-*_p.c
+# C++
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+*.out
 *.ilk
-*.meta
-*.cbplugin
-*.sublime-workspace
-
-# C++ specific
-*.stackdump
-*.tds
+*.iobj
+*.ipdb
 *.pdb
 *.exp
-*.lib
-*.map
+*.gch
+*.gcda
+*.gcno
+Debug/
+Release/
+x64/
+build/
+cmake-build-*/
+Makefile
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+Testing/
+install_manifest.txt
+compile_commands.json
 
-# Java specific
-*.class
-*.jar
-*.war
-*.ear
-*.nar
-*.hprof
-*.dyn_o
-*.dyn_d
-*.dyn_r
-*.dylib
-*.dylib.*
-*.so.*
-*.so
-*.dll
-*.exe
-*.out
-*.obj
-*.o
-*.a
-*.lib
-*.so
-*.dylib
-*.dll
-*.exe
-*.out
-*.obj
-*.o
-*.a
-*.lib
-target/
-.gradle/
+# C#
+bin/
+obj/
+*.sln.cache
+*.userprefs
+*.pidb
+*.user
+*.aps
+*.ncb
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+project.lock.json
+project.fragment.lock.json
+artifacts/
 
-# Web specific
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Julia specific
-julia-*/
-
-# Zig specific
-zig*/
-
+# Generated documentation
+docs/_build/
 ```
