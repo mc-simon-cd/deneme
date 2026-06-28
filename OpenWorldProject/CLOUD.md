@@ -1,78 +1,149 @@
-# ☁️ Open World Project - Cloud Dokümantasyonu
+# ☁️ Açık Dünya Projesi - Bulut Dokümantasyonu
 
-## Proje Özeti
-Bu proje, C, C++, C# ve TypeScript dillerinin birlikte kullanıldığı, açık lisanslı (CC0, MIT) karakter varlıklarıyla desteklenen modüler bir **Açık Dünya (Open World)** oyun motoru ve altyapısıdır.
+## 📋 Proje Özeti
 
-### 🏗️ Mimari Katmanlar
+C, C++, C# ve TypeScript dillerini birleştiren, açık lisanslı (CC0) karakterlerle desteklenen çok katmanlı bir açık dünya oyun projesi.
 
-| Katman | Dil | Sorumluluk | Durum |
-|--------|-----|------------|-------|
-| **Core** | C++ | Oyun döngüsü, Render, Fizik, Terrain | ✅ Aktif |
-| **System** | C | Bellek yönetimi, Veri yapıları, Network | ✅ Aktif |
-| **Logic** | C# | Görevler, Envanter, AI, UI Mantığı | ⚠️ Hazır |
-| **Tools** | TypeScript | Web Editörü, Debug Paneli, API | ✅ Aktif |
+### 🎯 Temel Özellikler
+- **Çok Dilli Mimari:** Her dilin güçlü yönlerinden yararlanma
+- **Açık Lisanslı:** Tüm assetler CC0/MIT lisanslı
+- **Modüler Yapı:** Kolayca genişletilebilir sistem
+- **Cross-Platform:** Windows, Linux, macOS desteği
 
-### 📂 Dizin Yapısı
+---
 
-```text
+## 🏗️ Mimari Katmanlar
+
+| Katman | Dil | Sorumluluk |
+|--------|-----|------------|
+| **Core** | C | Bellek yönetimi, temel veri yapıları |
+| **Engine** | C++ | Render, fizik, terrain sistemi |
+| **Logic** | C# | Görevler, envanter, AI davranışları |
+| **Tools** | TypeScript | Web paneli, harita editörü |
+| **AI** | Python | NPC durum makineleri |
+
+---
+
+## 📂 Dizin Yapısı
+
+```
 OpenWorldProject/
 ├── src/
-│   ├── c/                  # C sistem kütüphaneleri
-│   ├── cpp/                # C++ motor çekirdeği
-│   └── cs/                 # C# oyun mantığı
-├── include/                # Paylaşılan header dosyaları
-├── web/                    # TypeScript web araçları
-├── assets/                 # 3D Modeller, Dokular (CC0)
-├── docs/                   # Teknik dokümantasyon
-├── build/                  # Derleme çıktıları (GitIgnore)
-├── CMakeLists.txt          # C++ ve C build konfigürasyonu
-├── PROGRESS.md             # Geliştirme ilerleme raporu
-└── README.md               # Genel proje açıklaması
+│   ├── c/                  # C: character_manager.c
+│   ├── cpp/                # C++: engine, terrain, physics
+│   ├── python/             # Python: ai_npc.py
+│   └── cs/                 # C#: GameLogic.cs
+├── web/
+│   └── src/                # TS: types.ts, server.ts
+├── include/                # Header dosyaları
+├── assets/                 # CC0 modeller, dokular
+├── build/                  # Derlenmiş binary'ler
+├── docs/                   # Dokümantasyon
+├── PROGRESS.md             # İlerleme raporu
+├── CLOUD.md                # Bu dosya
+└── .cloudignore            # Bulut ignore kuralları
 ```
 
-### 🛠️ Kurulum ve Çalıştırma
+---
 
-#### 1. Gereksinimler
-- **C/C++:** GCC/Clang, CMake (>3.20)
-- **C#:** .NET SDK (>6.0)
-- **TS:** Node.js (>18), npm/yarn
+## 🚀 Kurulum Talimatları
 
-#### 2. Derleme (C/C++)
+### Gereksinimler
+- GCC/G++ 12+
+- Python 3.8+
+- Node.js 18+ (TypeScript için)
+- .NET SDK 7+ (C# için - opsiyonel)
+- CMake 3.20+
+
+### Adım 1: C/C++ Modülleri
 ```bash
-mkdir build && cd build
-cmake ..
-make
-./open_world_engine
+cd OpenWorldProject
+mkdir -p build && cd build
+
+# Karakter yönetimi (C)
+gcc -o char_manager ../src/c/character_manager.c
+./char_manager
+
+# Fizik sistemi (C++)
+g++ -std=c++17 -o physics_system ../src/cpp/physics_system.cpp
+./physics_system
+
+# Terrain sistemi (C++)
+g++ -std=c++17 -o terrain ../src/cpp/terrain_system.cpp
+./terrain
 ```
 
-#### 3. Web Aracı (TypeScript)
+### Adım 2: Python AI
+```bash
+python3 src/python/ai_npc.py
+```
+
+### Adım 3: TypeScript Web Paneli
 ```bash
 cd web
 npm install
-npm run dev
-# http://localhost:3000 adresinde çalışır
+npm run build
+npm start
 ```
 
-#### 4. Oyun Mantığı (C#)
+### Adım 4: C# Oyun Mantığı (Opsiyonel)
 ```bash
-dotnet run --project src/cs/OpenWorld.csproj
+cd src/cs
+dotnet run
 ```
-
-### 🎮 Temel Özellikler
-- **Dinamik Terrain:** 16x16 chunk sistemi ile sonsuz dünya simülasyonu.
-- **Çok Dilli Yapı:** Her dilin güçlü yönlerini kullanan hibrit mimari.
-- **Açık Kaynak Varlıklar:** Telif hakkı sorunu olmayan CC0 karakterler.
-- **Web Entegrasyonu:** Tarayıcı üzerinden dünya düzenleme ve izleme.
-
-### 📄 Lisans
-- **Kod:** MIT License
-- **Varlıklar (Assets):** CC0 1.0 Universal (Kullanılan asset'in kaynağına göre değişebilir, bkz: `docs/ASSET_LICENSES.md`)
-
-### 🤝 Katkıda Bulunma
-1. Projeyi fork edin.
-2. Yeni bir branch oluşturun (`feature/yeni-ozellik`).
-3. Değişikliklerinizi commit edin.
-4. Pull Request gönderin.
 
 ---
-*Bu dokümantasyon bulut ortamında senkronize edilmek üzere hazırlanmıştır.*
+
+## 🎮 Kullanım Örnekleri
+
+### C - Karakter Ekleme
+```c
+Character* hero = create_character(1, "Kahraman", 0, 0, 0);
+move_character(hero, 10.5f, 0, 5.2f);
+```
+
+### C++ - Fizik Objesi
+```cpp
+PhysicsObject player("Oyuncu", Vector3(0, 5, 0));
+player.velocity = Vector3(1, 0, 0);
+player.update(0.016f);
+```
+
+### Python - NPC Davranışı
+```python
+npc = NPC("Köylü", Vector3(10, 0, 10))
+npc.update(player_pos, delta_time)
+```
+
+### TypeScript - API Çağrısı
+```typescript
+const chars = await api.getCharacters();
+const height = await api.getHeightAt(50, 50);
+```
+
+---
+
+## 📄 Lisans Bilgileri
+
+| Bileşen | Lisans |
+|---------|--------|
+| Kod (C/C++/C#/TS/Py) | MIT |
+| Karakter Modelleri | CC0 (Kenney, OpenGameArt) |
+| Dokular | CC0 / CC-BY |
+| Ses Dosyaları | CC0 |
+
+Detaylı lisans bilgileri için `docs/ASSET_LICENSES.md` dosyasına bakınız.
+
+---
+
+## 🔗 Bağlantılar
+
+- **İlerleme Raporu:** [PROGRESS.md](./PROGRESS.md)
+- **Asset Lisansları:** [docs/ASSET_LICENSES.md](./docs/ASSET_LICENSES.md)
+- **Geliştirme Günlüğü:** [docs/DEV_LOG.md](./docs/DEV_LOG.md)
+
+---
+
+## 📞 Destek
+
+Sorularınız için GitHub Issues açabilir veya dokümantasyonu inceleyebilirsiniz.

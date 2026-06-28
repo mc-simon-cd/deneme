@@ -1,46 +1,43 @@
 ```
+# Compiled and build artifacts
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
+
 # Dependencies
-node_modules/
-
-# Build artifacts
-test_c
-test_cpp
-
-# Environment
-.env
-.env.local
-*.env.*
-
-# Editors
-.vscode/
-.idea/
-
-# Logs and temp files
-*.log
-*.tmp
-*.swp
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Python
+venv/
+.venv/
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .Python
-venv/
-.venv/
+env/
+ENV/
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Environment
 .env
+.env.local
+.env.*
 
-# Node.js
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
 
-# Build outputs
-dist/
+# Build directories
 build/
+dist/
 target/
 ```

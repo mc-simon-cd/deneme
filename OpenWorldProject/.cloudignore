@@ -1,10 +1,7 @@
-# Cloud Senkronizasyonu için Yoksayma Dosyası
+# Bulut Senkronizasyonu - Yoksayma Kuralları
 
-# Derleme ve Yapı Dosyaları
+# Derlenmiş dosyalar
 build/
-bin/
-obj/
-out/
 *.o
 *.obj
 *.exe
@@ -13,32 +10,22 @@ out/
 *.dylib
 *.a
 *.lib
-CMakeCache.txt
-CMakeFiles/
-cmake_install.cmake
-Makefile
-compile_commands.json
 
-# IDE ve Editör Klasörleri
+# IDE klasörleri
 .vscode/
 .idea/
+*.sln
+*.csproj.user
 *.swp
 *.swo
-*~
-.DS_Store
-Thumbs.db
 
-# Bağımlılıklar (Node, .NET)
+# Bağımlılıklar
 node_modules/
-package-lock.json
-yarn.lock
-.npm/
-bin/Debug/
-bin/Release/
-obj/Debug/
-obj/Release/
+bin/
+obj/
+packages/
 
-# Log ve Geçici Dosyalar
+# Log ve geçici dosyalar
 *.log
 logs/
 tmp/
@@ -46,20 +33,44 @@ temp/
 *.tmp
 *.bak
 
-# Test Çıktıları
-test_results/
-coverage/
-*.gcda
-*.gcno
-
-# Varlık Kaynakları (Gerekirse büyük dosyalar hariç tutulur)
-# assets/raw_sources/ 
-# assets/downloads/
-
-# Ortam Değişkenleri
+# Ortam değişkenleri
 .env
 .env.local
+.env.*.local
 *.env
 
-# Özel Bulut Yapılandırması (Eğer yerel ise)
-.cloud/local_config.json
+# Test coverage
+coverage/
+*.lcov
+
+# OS dosyaları
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+ENV/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# TypeScript build çıktıları (zaten src'de)
+web/dist/
+web/*.js
+web/*.js.map
+
+# Asset download klasörleri (büyük dosyalar)
+assets/downloads/
+assets/temp/
+
+# Dokümantasyon build
+docs/_build/
+docs/.doctrees/

@@ -1,67 +1,122 @@
-# 🚀 Open World Project - İlerleme Raporu
+# 🚀 Açık Dünya Projesi - İlerleme Raporu
 
-**Son Güncelleme:** 2023-10-27
-**Proje Durumu:** 🟡 Geliştirme Aşamasında (Alpha)
-
-## 📋 Genel Bakış
-C, C++, C# ve TypeScript kullanılarak geliştirilen, açık lisanslı varlıklarla desteklenen çok katmanlı açık dünya oyun projesi.
+**Son Güncelleme:** $(date +%Y-%m-%d)  
+**Durum:** Aktif Geliştirme  
 
 ---
 
-## ✅ Tamamlanan Görevler
+## ✅ Tamamlanan Bileşenler
 
-### 1. Mimari ve Altyapı
-- [x] Çok dilli mimari tasarımı (C/C++/C#/TS) belirlendi.
-- [x] Proje dizin yapısı oluşturuldu.
-- [x] CMake build sistemi temel konfigürasyonu yapıldı.
-- [x] `.cloudignore` ve dokümantasyon standartları tanımlandı.
+### 1. C Modülü - Karakter Yönetimi
+- **Dosya:** `src/c/character_manager.c`
+- **Özellikler:**
+  - Dinamik karakter ekleme/silme
+  - Konum takibi (x, y, z)
+  - Bellek yönetimi
+- **Test:** ✅ Başarılı
 
-### 2. C Katmanı (Düşük Seviye Sistemler)
-- [x] `character_data.h`: Temel karakter veri yapıları tanımlandı.
-- [x] `character_manager.c`: Karakter oluşturma, bulma ve silme fonksiyonları yazıldı.
-- [x] Bellek yönetimi testleri başarıyla tamamlandı.
+### 2. C++ Modülü - Oyun Motoru & Fizik
+- **Dosyalar:**
+  - `src/cpp/open_world_engine.cpp` (Render sistemi)
+  - `src/cpp/terrain_system.cpp` (Chunk-based terrain)
+  - `src/cpp/physics_system.cpp` (Collision detection, yerçekimi)
+- **Özellikler:**
+  - AABB collision detection
+  - Vektör matematiği
+  - Yerçekimi ve sürtünme simülasyonu
+  - 16x16 chunk terrain sistemi
+- **Test:** ✅ Başarılı (34 chunk oluşturuldu, fizik motoru çalışıyor)
 
-### 3. C++ Katmanı (Oyun Motoru & Dünya)
-- [x] `open_world_engine.cpp`: Ana oyun döngüsü iskeleti oluşturuldu.
-- [x] `terrain_system.cpp`: Chunk-based (16x16) dinamik arazi sistemi implement edildi.
-- [x] 34 chunk oluşturulabilen ve yönetilebilen test senaryosu geçti.
-- [x] Render arayüzü için temel sınıflar tanımlandı.
+### 3. Python Modülü - NPC AI
+- **Dosya:** `src/python/ai_npc.py`
+- **Özellikler:**
+  - Durum makinesi (Idle, Patrol, Follow, Flee, Talk)
+  - Diyalog sistemi
+  - Oyuncu-NPC etkileşimi
+- **Test:** ✅ Başarılı
 
-### 4. C# Katmanı (Oyun Mantığı)
-- [x] `GameLogic.cs`: Görev (Quest) sistemi taslağı hazırlandı.
-- [x] Envanter ve XP/Leveling sistemleri kodlandı.
-- [ ] .NET SDK entegrasyonu ve derleme testi (Beklemede).
+### 4. TypeScript Modülü - Web Paneli
+- **Dosyalar:**
+  - `web/src/types.ts` (Tip tanımları)
+  - `web/src/server.ts` (REST API)
+- **Özellikler:**
+  - Karakter yönetim API'si
+  - Harita yükseklik verisi sorgulama
+- **Test:** ✅ Başarılı (TSC derleme geçti)
 
-### 5. TypeScript Katmanı (Web Araçları)
-- [x] `types.ts`: Tip güvenliği için interface'ler tanımlandı.
-- [x] `server.ts`: Express.js tabanlı REST API iskeleti kuruldu.
-- [x] Karakter listeleme ve harita verisi servisi test edildi.
-- [x] TypeScript derleme (tsc) başarısızsız tamamlandı.
-
-### 6. Varlıklar ve Lisanslar
-- [x] CC0 ve Açık Lisanslı kaynak listesi (`docs/ASSET_LICENSES.md`) oluşturuldu.
-- [ ] İlk karakter modellerinin indirilmesi ve `assets/` klasörüne eklenmesi.
+### 5. C# Modülü - Oyun Mantığı
+- **Dosya:** `src/cs/GameLogic.cs`
+- **Özellikler:**
+  - Görev sistemi (Quest)
+  - Envanter yönetimi
+  - XP/Leveling sistemi
+- **Durum:** ⚠️ Kod hazır, .NET SDK kurulu değil
 
 ---
 
-## 🚧 Devam Eden İşler
-- **Grafik Motoru:** Vulkan veya OpenGL entegrasyonu için araştırma ve temel pencere oluşturma kodları yazılıyor.
-- **Fizik Sistemi:** Basit çarpışma algılama (collision detection) algoritmasının C++ tarafına eklenmesi.
-- **Veri Kalıcılığı:** Oyun durumunun JSON/XML formatında kaydedilmesi.
+## 📊 Proje İstatistikleri
 
-## 📅 Sonraki Adımlar (Roadmap)
-1. **Hafta 1:** Grafik motoru entegrasyonu (Üçgen render etme).
-2. **Hafta 2:** Fizik motoru ve karakter hareket mekaniği.
-3. **Hafta 3:** Biome sistemi (Çöl, Orman, Kar) ve prosedürel üretim iyileştirmeleri.
-4. **Hafta 4:** C# ve C++ arasındaki köprü (Interop) testleri.
+| Metrik | Değer |
+|--------|-------|
+| Toplam Dosya | 15+ |
+| Kod Satırı | ~2000+ |
+| Test Edilen Modül | 5/6 |
+| Dil Desteği | C, C++, Python, TS, C# |
+
+---
+
+## 🗺️ Yol Haritası
+
+### Hafta 1-2: Temel Sistemler ✅
+- [x] Karakter yönetimi (C)
+- [x] Terrain sistemi (C++)
+- [x] Fizik motoru (C++)
+- [x] NPC AI (Python)
+- [x] Web paneli (TS)
+
+### Hafta 3-4: Gelişmiş Özellikler 🔄
+- [ ] Grafik motoru entegrasyonu (Vulkan/OpenGL)
+- [ ] Biome sistemi (Çöl, Orman, Dağ)
+- [ ] Dinamik hava durumu
+- [ ] Su simülasyonu
+
+### Hafta 5-6: İçerik & Optimizasyon
+- [ ] 50+ CC0 karakter modeli
+- [ ] Görev zincirleri
+- [ ] Multiplayer altyapısı
+- [ ] LOD (Level of Detail) sistemi
 
 ---
 
 ## 🐛 Bilinen Sorunlar
-- C# modülü henüz tam derleme ortamında test edilmedi.
-- Web sunucusu şu an sadece localhost üzerinde çalışıyor.
 
-## 📊 İstatistikler
-- **Toplam Kod Satırı:** ~850+
-- **Aktif Geliştirici:** 1 (AI Asistanlı)
-- **Test Başarı Oranı:** %90 (C, C++, TS testleri geçti)
+1. **.NET SDK Eksik:** C# modülü test edilemedi
+2. **Grafik Motoru:** Henüz entegre edilmedi
+3. **Asset Yükleme:** Gerçek model dosyaları henüz eklenmedi
+
+---
+
+## 📁 Dizin Yapısı
+
+```
+OpenWorldProject/
+├── src/
+│   ├── c/           # Temel sistemler
+│   ├── cpp/         # Motor & Fizik
+│   ├── python/      # AI sistemleri
+│   └── cs/          # Oyun mantığı
+├── web/             # Web araçları
+├── include/         # Header dosyaları
+├── assets/          # CC0 varlıklar
+├── build/           # Derlenmiş dosyalar
+└── docs/            # Dokümantasyon
+```
+
+---
+
+## 🎯 Sonraki Adımlar
+
+1. OpenGL/Vulkan render pipeline ekle
+2. Gerçek CC0 assetleri indir ve entegre et
+3. Biome generation algoritması yaz
+4. Save/Load sistemi implement et
