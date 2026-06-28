@@ -13,7 +13,7 @@
   - Dinamik karakter ekleme/silme
   - Konum takibi (x, y, z)
   - Bellek yönetimi
-- **Test:** ✅ Başarılı
+- **Test:** ✅ Başarılı (Derlendi ve çalıştırıldı)
 
 ### 2. C++ Modülü - Oyun Motoru & Fizik
 - **Dosyalar:**
@@ -25,7 +25,7 @@
   - Vektör matematiği
   - Yerçekimi ve sürtünme simülasyonu
   - 16x16 chunk terrain sistemi
-- **Test:** ✅ Başarılı (34 chunk oluşturuldu, fizik motoru çalışıyor)
+- **Test:** ✅ Başarılı (Tüm modüller derlendi ve test edildi: engine, terrain, physics)
 
 ### 3. Python Modülü - NPC AI
 - **Dosya:** `src/python/ai_npc.py`
@@ -33,7 +33,7 @@
   - Durum makinesi (Idle, Patrol, Follow, Flee, Talk)
   - Diyalog sistemi
   - Oyuncu-NPC etkileşimi
-- **Test:** ✅ Başarılı
+- **Test:** ✅ Başarılı (5 tick çalıştırıldı)
 
 ### 4. TypeScript Modülü - Web Paneli
 - **Dosyalar:**
@@ -50,7 +50,7 @@
   - Görev sistemi (Quest)
   - Envanter yönetimi
   - XP/Leveling sistemi
-- **Durum:** ⚠️ Kod hazır, .NET SDK kurulu değil
+- **Durum:** ⚠️ Kod hazır, disk alanı yetersiz (.NET SDK kurulamadı)
 
 ---
 
@@ -60,8 +60,9 @@
 |--------|-------|
 | Toplam Dosya | 15+ |
 | Kod Satırı | ~2000+ |
-| Test Edilen Modül | 5/6 |
+| Test Edilen Modül | 4/5 (C, C++, Python, TS ✅) |
 | Dil Desteği | C, C++, Python, TS, C# |
+| Derlenmiş Binary | 3 adet (character_test, open_world_test, terrain_test, physics_test) |
 
 ---
 
@@ -90,7 +91,7 @@
 
 ## 🐛 Bilinen Sorunlar
 
-1. **.NET SDK Eksik:** C# modülü test edilemedi
+1. **Disk Alanı Yetersiz:** .NET SDK kurulumu için yeterli alan yok (~409 MB gerekli)
 2. **Grafik Motoru:** Henüz entegre edilmedi
 3. **Asset Yükleme:** Gerçek model dosyaları henüz eklenmedi
 
@@ -116,7 +117,8 @@ OpenWorldProject/
 
 ## 🎯 Sonraki Adımlar
 
-1. OpenGL/Vulkan render pipeline ekle
-2. Gerçek CC0 assetleri indir ve entegre et
-3. Biome generation algoritması yaz
-4. Save/Load sistemi implement et
+1. **Öncelikli:** Disk alanı genişletme (.NET SDK kurulumu için ~409MB gerekli)
+2. OpenGL/Vulkan render pipeline ekle
+3. Gerçek CC0 assetleri indir ve entegre et
+4. Biome generation algoritması yaz
+5. Save/Load sistemi implement et
